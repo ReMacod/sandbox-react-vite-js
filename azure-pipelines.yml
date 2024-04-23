@@ -12,7 +12,9 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '21.x'
+    versionSource: 'spec'
+    versionSpec: '18.x'
+    checkLatest: true
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
@@ -20,7 +22,7 @@ steps:
     appType: 'webAppLinux'
     WebAppName: 'branch-deployment-app'
     packageForLinux: '/*'
-    RuntimeStack: 'NODE|21-lts'
+    RuntimeStack: 'NODE|18-lts'
   displayName: 'Install Node.js'
 
 - script: |
