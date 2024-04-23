@@ -12,15 +12,15 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '18.x'
+    versionSpec: '21.x'
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(ca3275af-1f5c-46f1-81ed-4fb8f0006566)'
     appType: 'webAppLinux'
     WebAppName: 'branch-deployment-app'
-    packageForLinux: '/dist'
-    RuntimeStack: 'NODE|18-lts'
+    packageForLinux: '/*'
+    RuntimeStack: 'NODE|21-lts'
   displayName: 'Install Node.js'
 
 - script: |
