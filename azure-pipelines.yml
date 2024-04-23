@@ -16,7 +16,8 @@ steps:
     checkLatest: true
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+- task: AzureAppServiceSettings@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(ca3275af-1f5c-46f1-81ed-4fb8f0006566)'
+    appName: 'branch-deployment-app'
+    resourceGroupName: 'webapp'
